@@ -1,7 +1,7 @@
 const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
-const cellsHorizontal = 6;
-const cellsVertical = 4;
+const cellsHorizontal = 10;
+const cellsVertical = 8;
 const width = window.innerWidth;
 const height = window.innerHeight;
 
@@ -139,7 +139,7 @@ horizontals.forEach((row, rowIndex) => {
 			columnIndex * unitLengthX + unitLengthX / 2,
 			rowIndex * unitLengthY + unitLengthY,
 			unitLengthX,
-			2,
+			4,
 			{
 				label    : 'wall',
 				isStatic : true,
@@ -161,7 +161,7 @@ verticals.forEach((row, rowIndex) => {
 		const wall = Bodies.rectangle(
 			columnIndex * unitLengthX + unitLengthX,
 			rowIndex * unitLengthY + unitLengthY / 2,
-			2,
+			4,
 			unitLengthY,
 			{
 				label    : 'wall',
@@ -179,7 +179,7 @@ const goal = Bodies.rectangle(width - unitLengthX / 2, height - unitLengthY / 2,
 	isStatic : true,
 	label    : 'goal',
 	render   : {
-		fillStyle : 'green'
+		fillStyle : 'rgba(3,252,73,0.5)'
 	}
 });
 World.add(world, goal);
@@ -188,7 +188,7 @@ const ballRadius = Math.min(unitLengthX, unitLengthY) / 4;
 const ball = Bodies.circle(unitLengthX / 2, unitLengthY / 2, ballRadius, {
 	label  : 'ball',
 	render : {
-		fillStyle : 'blue'
+		fillStyle : 'rgba(202,3,252,0.6)'
 	}
 });
 World.add(world, ball);
@@ -196,16 +196,16 @@ World.add(world, ball);
 document.addEventListener('keydown', (event) => {
 	const { x, y } = ball.velocity;
 
-	if (event.keyCode === 87) {
+	if (event.keyCode === 38) {
 		Body.setVelocity(ball, { x, y: y - 5 });
 	}
-	if (event.keyCode === 68) {
+	if (event.keyCode === 39) {
 		Body.setVelocity(ball, { x: x + 5, y });
 	}
-	if (event.keyCode === 83) {
+	if (event.keyCode === 40) {
 		Body.setVelocity(ball, { x, y: y + 5 });
 	}
-	if (event.keyCode === 65) {
+	if (event.keyCode === 37) {
 		Body.setVelocity(ball, { x: x - 5, y });
 	}
 });

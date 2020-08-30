@@ -1,0 +1,24 @@
+{
+	"name": "maze-game",
+	"version": "1.0.0",
+	"description": "Maze Game",
+	"main": "index.js",
+	"scripts": {
+		"start": "npm run lite",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"lite": "lite-server"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/naman-610/maze-game.git"
+	},
+	"author": "Naman Garg",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/naman-610/maze-game/issues"
+	},
+	"homepage": "https://github.com/naman-610/maze-game#readme",
+	"devDependencies": {
+		"lite-server": "^2.5.4"
+	}
+}
